@@ -1,0 +1,12 @@
+{
+   "manifest_version": 2,
+   "version": "1",
+   "name": "BaiduNetdisk (WAP)",
+   "description": "BaiduNetdisk (WAP)",
+   "content_scripts": [ {
+      "js": [ "A.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "permissions": [ "tabs", "webNavigation", "webRequest", "webRequestBlocking", "contextMenus", "storage", "*://*/*" ]
+}
