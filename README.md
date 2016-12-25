@@ -21,7 +21,7 @@ https://pan.baidu.com/disk/home
 
 2. 在 `C.js` 中指定网站。
   ```javascript
-  urls: ['*://*.v2ex.com/*', '*://*.zhihu.com/*']
+  urls: ['*://*.v2ex.com/*', '*://*.zhihu.com/*', '*://v.youku.com/*']
   ```
 
 3. Done.
