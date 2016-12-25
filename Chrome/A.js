@@ -5,8 +5,8 @@ var actualCode = '(' + function() {
                 return 'Android';
             }
         });
-    } +
-    ')();';
+    }
+    + ')();';
 var s = document.createElement('script');
 s.textContent = actualCode;
 document.documentElement.appendChild(s);
