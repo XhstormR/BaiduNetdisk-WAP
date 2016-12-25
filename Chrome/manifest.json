@@ -3,9 +3,7 @@
    "version": "1",
    "name": "BaiduNetdisk (WAP)",
    "description": "BaiduNetdisk (WAP)",
-//   "background": {
-//      "scripts": [ "C.js" ]
-//   },
+//   "background": {"scripts": [ "C.js" ]},
    "content_scripts": [ {
       "js": [ "A.js" ],
       "matches": [ "http://*/*", "https://*/*" ],
