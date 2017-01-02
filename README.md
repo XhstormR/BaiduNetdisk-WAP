@@ -15,6 +15,7 @@ https://pan.baidu.com/disk/home
 
 ### 解除优酷对 PC 端访问移动端的操作限制
 http://m.youku.com/video/id_XMTg4MDUzNDM5Mg==.html
+http://m.youku.com/video/id_XMTQ1NzQ4MTg3Ng==.html
 
 ### 伪装指定网站的 User-Agent (Android)
 1. 去掉 `manifest.json` 中的注释。
