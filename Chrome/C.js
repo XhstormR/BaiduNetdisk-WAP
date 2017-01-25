@@ -13,7 +13,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 }, ['blocking', 'requestHeaders']);
 
 chrome.browserAction.onClicked.addListener(function(tab) {
-    if (!confirm('是否要关闭重复标签页？'))
+    if (!confirm('是否要移除重复标签页？'))
         return;
     var urls = [], tabsToClose = [];
     chrome.tabs.query({

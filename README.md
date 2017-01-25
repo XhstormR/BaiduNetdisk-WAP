@@ -29,3 +29,5 @@ https://pan.baidu.com/disk/home
   ```
 
 3. Done.
+
+### 移除重复标签页
