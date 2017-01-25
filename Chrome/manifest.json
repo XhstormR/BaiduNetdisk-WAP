@@ -3,6 +3,7 @@
     "version": "1",
     "name": "BaiduNetdisk (WAP)",
     "description": "BaiduNetdisk (WAP)",
+    "browser_action": {"default_title": "BaiduNetdisk (WAP)"},
 //    "background": {"scripts": ["C.js"]},
     "content_scripts": [{
         "js": ["A.js"],
