@@ -6,6 +6,10 @@
     "browser_action": {"default_title": "BaiduNetdisk (WAP)"},
 //    "background": {"scripts": ["C.js"]},
     "content_scripts": [{
+        "js": ["A.js"],
+        "matches": ["*://v.qq.com/*"],
+        "run_at": "document_start"
+    }, {
         "js": ["B.js"],
         "matches": ["*://*.baidu.com/*", "*://v.youku.com/*"], //        "matches": ["http://*/*", "https://*/*"],
         "run_at": "document_start"

@@ -1,8 +1,8 @@
 var actualCode = '(' + function() {
         'use strict';
-        Object.defineProperty(navigator, 'platform', {
+        Object.defineProperty(navigator, 'userAgent', {
             get: function() {
-                return 'Android';
+                return 'Macintosh Mac OS X 123';
             }
         });
     }
