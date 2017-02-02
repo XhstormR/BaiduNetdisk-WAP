@@ -2,7 +2,7 @@ var actualCode = '(' + function() {
         'use strict';
         Object.defineProperties(Navigator.prototype, {
             userAgent: {
-                value: 'AA',
+                value: 'Android',
                 configurable: false,
                 enumerable: true,
                 writable: false
