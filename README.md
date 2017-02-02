@@ -18,6 +18,9 @@ https://pan.baidu.com/disk/home
 * http://m.youku.com/video/id_XMTQ1NzQ4MTg3Ng==.html
 
 ### 伪装指定网站的 User-Agent (Android)
+
+#### Header
+
 1. 去掉 `manifest.json` 中的注释。
   ```javascript
   //   "background": {"scripts": [ "C.js" ]},
@@ -29,5 +32,15 @@ https://pan.baidu.com/disk/home
   ```
 
 3. Done.
+
+#### Native
+
+1. 在 `manifest.json` 中指定网站。
+  ```javascript
+  "js": ["B.js"],
+  "matches": ["*://*.baidu.com/*", "*://v.youku.com/*"],
+  ```
+
+2. Done.
 
 ### 移除重复标签页
