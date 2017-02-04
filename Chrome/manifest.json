@@ -11,7 +11,7 @@
         "run_at": "document_start"
     }, {
         "js": ["B.js"],
-        "matches": ["*://*.baidu.com/*", "*://v.youku.com/*"], //        "matches": ["http://*/*", "https://*/*"],
+        "matches": ["*://*.baidu.com/*", "*://v.youku.com/*", "*://*.vmovier.com/*"], //        "matches": ["http://*/*", "https://*/*"],
         "run_at": "document_start"
     }, {
         "js": ["D.js"],
