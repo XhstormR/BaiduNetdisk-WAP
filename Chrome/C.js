@@ -9,7 +9,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
         requestHeaders: details.requestHeaders
     };
 }, {
-    urls: ['*://*.v2ex.com/*', '*://*.zhihu.com/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://v.youku.com/*'] //    urls: ['<all_urls>']
+    urls: ['*://*.v2ex.com/*', '*://*.zhihu.com/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://v.youku.com/*', '*://*.jianshu.com/*'] //    urls: ['<all_urls>']
 }, ['blocking', 'requestHeaders']);
 
 chrome.browserAction.onClicked.addListener(function(tab) {
