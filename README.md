@@ -21,17 +21,12 @@ https://pan.baidu.com/disk/home
 
 #### Header
 
-1. 去掉 `manifest.json` 中的注释。
-  ```javascript
-  //   "background": {"scripts": [ "C.js" ]},
-  ```
-
-2. 在 `C.js` 中指定网站。
+1. 在 `C.js` 中指定网站。
   ```javascript
   urls: ['*://*.v2ex.com/*', '*://*.zhihu.com/*', '*://v.youku.com/*']
   ```
 
-3. Done.
+2. Done.
 
 #### Native
 
@@ -42,5 +37,25 @@ https://pan.baidu.com/disk/home
   ```
 
 2. Done.
+
+### 加载自定义 CSS
+
+1. 去掉 `manifest.json` 中的注释。
+  ```javascript
+  //        "css": ["A.css"],
+  //        "matches": ["http://*/*", "https://*/*"],
+  //        "exclude_matches": ["*://localhost/*", "*://*.xhstormr.tk/*"],
+  //        "run_at": "document_start"
+  //    }, {
+  ```
+
+2. 在 `A.css` 中添加样式。
+  ```css
+  a{text-decoration:none !important}
+  a:hover { text-decoration: underline !important;}
+  *:not([class*="icon"]):not(i){font-family: "Microsoft YaHei","Symbol" !important;}
+  ```
+
+3. Done.
 
 ### 移除重复标签页

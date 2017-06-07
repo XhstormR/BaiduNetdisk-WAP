@@ -4,8 +4,13 @@
     "name": "BaiduNetdisk (WAP)",
     "description": "BaiduNetdisk (WAP)",
     "browser_action": {"default_title": "BaiduNetdisk (WAP)"},
-//    "background": {"scripts": ["C.js"]},
+    "background": {"scripts": ["C.js"]},
     "content_scripts": [{
+//        "css": ["A.css"],
+//        "matches": ["http://*/*", "https://*/*"],
+//        "exclude_matches": ["*://localhost/*", "*://*.xhstormr.tk/*"],
+//        "run_at": "document_start"
+//    }, {
         "js": ["A.js"],
         "matches": ["*://v.qq.com/*"],
         "run_at": "document_start"
