@@ -13,9 +13,12 @@ https://pan.baidu.com/disk/home
 
 ## Extra
 
-### 解除优酷对 PC 端访问移动端的操作限制
+### 优酷视频使用 HTML5 播放器（解除优酷对 PC 端访问移动端的操作限制）
 * http://m.youku.com/video/id_XMTg4MDUzNDM5Mg==.html
 * http://m.youku.com/video/id_XMTQ1NzQ4MTg3Ng==.html
+
+### 腾讯视频使用 HTML5 播放器
+* https://v.qq.com/x/cover/vtxb95np45a6ooz/j0022b6o28p.html
 
 ### 伪装指定网站的 User-Agent (Android)
 
