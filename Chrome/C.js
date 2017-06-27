@@ -1,5 +1,5 @@
 chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
-    for (var i = 0; i < details.requestHeaders.length; ++i) {
+    for (let i = 0; i < details.requestHeaders.length; ++i) {
         if (details.requestHeaders[i].name == 'User-Agent') {
             details.requestHeaders[i].value = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Mobile Safari/537.36';
             break;
@@ -12,10 +12,19 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
     urls: ['*://*.v2ex.com/*', '*://*.zhihu.com/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://v.youku.com/*', '*://m.youku.com/*', '*://*.jianshu.com/*', '*://*.wikipedia.org/*'] //    urls: ['<all_urls>']
 }, ['blocking', 'requestHeaders']);
 
+chrome.webNavigation.onBeforeNavigate.addListener(function(details) {
+    if (details.url.startsWith("https://zh.m.wikipedia.org/wiki/")) {
+        const newUrl = details.url.replace("/wiki/", "/zh-cn/");
+        chrome.tabs.update(details.tabId, {
+            url: newUrl
+        });
+    }
+});
+
 chrome.browserAction.onClicked.addListener(function(tab) {
     if (!confirm('是否要移除重复标签页？'))
         return;
-    var urls = [], tabsToClose = [];
+    const urls = [], tabsToClose = [];
     chrome.tabs.query({
         currentWindow: true
     }, function(tabs) {
