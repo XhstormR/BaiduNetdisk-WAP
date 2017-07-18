@@ -1,10 +1,13 @@
-var readingStyle = document.createElement("style");
-readingStyle.textContent = "*{color: #A9B7C6 !important;background-color: #2B2B2B !important;}";
+let flag = false;
+let readingStyle = document.createElement("style");
+readingStyle.textContent = "*{color: #A9B7C6 !important;background-color: #2B2B2B !important;text-shadow: none !important;}";
 
-function readingMode(flag) {
+function readingMode() {
     if (flag) {
-        document.body.appendChild(readingStyle);
-    } else {
+        flag = false;
         document.body.removeChild(readingStyle);
+    } else {
+        flag = true;
+        document.body.appendChild(readingStyle);
     }
 }
