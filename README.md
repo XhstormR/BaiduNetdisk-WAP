@@ -63,6 +63,6 @@ https://pan.baidu.com/disk/home
 
 ### 阅读模式
 
-开启 | 关闭：Alt+Shift+R
+开启 | 关闭：<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>
 
 ### 移除重复标签页
