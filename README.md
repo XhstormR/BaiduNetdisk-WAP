@@ -61,4 +61,8 @@ https://pan.baidu.com/disk/home
 
 3. Done.
 
+### 阅读模式
+
+开启 | 关闭：Alt+Shift+R
+
 ### 移除重复标签页

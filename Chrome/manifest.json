@@ -22,6 +22,16 @@
         "js": ["D.js"],
         "matches": ["*://m.youku.com/*"],
         "run_at": "document_idle"
+    }, {
+        "js": ["E.js"],
+        "matches": ["http://*/*", "https://*/*"],
+        "run_at": "document_start"
     }],
+    "commands": {
+        "Reading Mode": {
+            "suggested_key": {"default": "Alt+Shift+R"},
+            "description": "Reading Mode"
+        }
+    },
     "permissions": ["tabs", "webNavigation", "webRequest", "webRequestBlocking", "contextMenus", "storage", "*://*/*"]
 }

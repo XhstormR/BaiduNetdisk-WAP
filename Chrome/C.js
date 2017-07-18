@@ -38,3 +38,18 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         chrome.tabs.remove(tabsToClose);
     });
 });
+
+let flag = false;
+chrome.commands.onCommand.addListener(function(command) {
+    if (flag) {
+        flag = false;
+        chrome.tabs.executeScript(null, {
+            code: "readingMode(false);"
+        });
+    } else {
+        flag = true;
+        chrome.tabs.executeScript(null, {
+            code: "readingMode(true);"
+        });
+    }
+});
