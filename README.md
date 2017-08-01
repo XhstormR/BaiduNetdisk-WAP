@@ -43,23 +43,14 @@ https://pan.baidu.com/disk/home
 
 ### 加载自定义 CSS
 
-1. 去掉 `manifest.json` 中的注释。
-  ```javascript
-  //        "css": ["A.css"],
-  //        "matches": ["http://*/*", "https://*/*"],
-  //        "exclude_matches": ["*://localhost/*", "*://*.xhstormr.tk/*"],
-  //        "run_at": "document_start"
-  //    }, {
-  ```
-
-2. 在 `A.css` 中添加样式。
+1. 在 `A.css` 中添加样式。
   ```css
   a{text-decoration:none !important}
   a:hover { text-decoration: underline !important;}
   *:not([class*="icon"]):not(i){font-family: "Microsoft YaHei","Symbol" !important;}
   ```
 
-3. Done.
+2. Done.
 
 ### 阅读模式
 

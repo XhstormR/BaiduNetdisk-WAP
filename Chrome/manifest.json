@@ -6,17 +6,17 @@
     "browser_action": {"default_title": "BaiduNetdisk (WAP)"},
     "background": {"scripts": ["C.js"]},
     "content_scripts": [{
-//        "css": ["A.css"],
-//        "matches": ["http://*/*", "https://*/*"],
-//        "exclude_matches": ["*://localhost/*", "*://*.xhstormr.tk/*"],
-//        "run_at": "document_start"
-//    }, {
+        "css": ["A.css"],
+        "matches": ["http://*/*", "https://*/*"],
+        "exclude_matches": ["*://localhost/*", "*://*.xhstormr.tk/*"],
+        "run_at": "document_start"
+    }, {
         "js": ["A.js"],
         "matches": ["*://v.qq.com/*"],
         "run_at": "document_start"
     }, {
         "js": ["B.js"],
-        "matches": ["*://*.baidu.com/*", "*://v.youku.com/*", "*://m.youku.com/*", "*://*.vmovier.com/*"], //        "matches": ["http://*/*", "https://*/*"],
+        "matches": ["*://*.baidu.com/*", "*://v.youku.com/*", "*://m.youku.com/*", "*://*.vmovier.com/*", "*://*.jandan.net/*"], //        "matches": ["http://*/*", "https://*/*"],
         "run_at": "document_start"
     }, {
         "js": ["D.js"],

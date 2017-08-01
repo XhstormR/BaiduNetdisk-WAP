@@ -5,9 +5,9 @@ readingStyle.textContent = "*{color: #A9B7C6 !important;background-color: #2B2B2
 function readingMode() {
     if (flag) {
         flag = false;
-        document.body.removeChild(readingStyle);
+        document.head.removeChild(readingStyle);
     } else {
         flag = true;
-        document.body.appendChild(readingStyle);
+        document.head.appendChild(readingStyle);
     }
 }
