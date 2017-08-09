@@ -26,6 +26,10 @@
         "js": ["E.js"],
         "matches": ["http://*/*", "https://*/*"],
         "run_at": "document_start"
+    }, {
+        "js": ["F.js"],
+        "matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://*.stackoverflow.com/*", "*://*.stackexchange.com/*", "*://*.serverfault.com/*", "*://*.superuser.com/*", "*://*.v2ex.com/*", "*://*.zhihu.com/*", "*://*.solidot.org/*", "*://*.jandan.net/*"],
+        "run_at": "document_idle"
     }],
     "commands": {
         "Reading Mode": {

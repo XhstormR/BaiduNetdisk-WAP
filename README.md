@@ -1,5 +1,14 @@
 # BaiduNetdisk (WAP)
 
+<details>
+<summary>Table of Contents</summary>
+
+- [Install](#install)
+- [Features](#features)
+- [Extra](#extra)
+
+</details>
+
 ## Install
 Chrome : Click Settings -> Extensions -> Check Developer mode-> Load unpacked extension, navigate to the Chrome folder, click OK.
 
@@ -43,17 +52,25 @@ https://pan.baidu.com/disk/home
 
 ### 加载自定义 CSS
 
-1. 在 `A.css` 中添加样式。
-  ```css
-  a{text-decoration:none !important}
-  a:hover { text-decoration: underline !important;}
-  *:not([class*="icon"]):not(i){font-family: "Microsoft YaHei","Symbol" !important;}
-  ```
+在 `A.css` 中添加样式。
 
-2. Done.
+```css
+a{text-decoration:none !important}
+a:hover { text-decoration: underline !important;}
+*:not([class*="icon"]):not(i){font-family: "Microsoft YaHei","Symbol" !important;}
+```
 
 ### 阅读模式
 
 开启 | 关闭：<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>
+
+#### 指定网站自动开启阅读模式
+
+在 `manifest.json` 中指定网站。
+
+```javascript
+"js": ["F.js"],
+"matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://*.stackoverflow.com/*"],
+```
 
 ### 移除重复标签页
