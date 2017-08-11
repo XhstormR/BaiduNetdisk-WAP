@@ -5,7 +5,16 @@
 
 - [Install](#install)
 - [Features](#features)
+  - [禁止跳转至 PC 版网页](#)
+  - [突破大文件限制](#)
 - [Extra](#extra)
+  - [优酷视频使用 HTML5 播放器](#)
+  - [腾讯视频使用 HTML5 播放器](#)
+  - [伪装指定网站的 User-Agent](#)
+  - [加载自定义 CSS](#)
+  - [阅读模式](#)
+  - [翻译文本](#)
+  - [移除重复标签页](#)
 
 </details>
 
@@ -72,5 +81,12 @@ a:hover { text-decoration: underline !important;}
 "js": ["F.js"],
 "matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://*.stackoverflow.com/*"],
 ```
+
+### 翻译文本
+
+翻译 **选中** 文本并将结果输出至 F12 Console。
+
+* 翻译&#8195;&#8195;&#8195;&#8196;：<kbd>Alt</kbd>+<kbd>Q</kbd>
+* 翻译 + 朗读：<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>Q</kbd>
 
 ### 移除重复标签页

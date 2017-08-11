@@ -28,13 +28,21 @@
         "run_at": "document_start"
     }, {
         "js": ["F.js"],
-        "matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://*.stackoverflow.com/*", "*://*.stackexchange.com/*", "*://*.serverfault.com/*", "*://*.superuser.com/*", "*://*.v2ex.com/*", "*://*.zhihu.com/*", "*://*.solidot.org/*", "*://*.jandan.net/*"],
+        "matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://*.stackoverflow.com/*", "*://*.stackexchange.com/*", "*://*.serverfault.com/*", "*://*.superuser.com/*", "*://*.v2ex.com/*", "*://*.zhihu.com/*", "*://*.douban.com/*", "*://*.solidot.org/*", "*://*.jandan.net/*"],
         "run_at": "document_idle"
     }],
     "commands": {
         "Reading Mode": {
             "suggested_key": {"default": "Alt+Shift+R"},
-            "description": "Reading Mode"
+            "description": " "
+        },
+        "Translate and Read": {
+            "suggested_key": {"default": "Alt+Shift+Q"},
+            "description": " "
+        },
+        "Translate": {
+            "suggested_key": {"default": "Alt+Q"},
+            "description": " "
         }
     },
     "permissions": ["tabs", "webNavigation", "webRequest", "webRequestBlocking", "contextMenus", "storage", "*://*/*"]
