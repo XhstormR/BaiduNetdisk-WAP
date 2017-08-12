@@ -29,8 +29,7 @@ function callback(o) {
     if (o[1]) {
         o[1].forEach(value => window.console.log(resolve(value[0]) + reduce(value[1])));
     }
-    window.console.log(o[0][0][0]);
-    window.console.log("——————————————————————————————");
+    o[0].forEach(value => window.console.log(value[0] !== null ? value[0] : "——————————————————————————————"));
 }
 
 function resolve(str) {
@@ -49,11 +48,13 @@ function resolve(str) {
             return "连词：";
         case "adjective":
             return "形容词：";
+        case "auxiliary verb":
+            return "助动词：";
         default:
-            return str;
+            return str + "：";
     }
 }
 
 function reduce(arr) {
-    return arr.slice(0, 4).toString();
+    return arr.slice(0, 5).toString();
 }
