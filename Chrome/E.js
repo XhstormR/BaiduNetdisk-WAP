@@ -1,6 +1,6 @@
 "use strict";
 let flag = false;
-let readingStyle = document.createElement("style");
+const readingStyle = document.createElement("style");
 readingStyle.textContent = `
 *{color: #A9B7C6 !important;background-color: #2B2B2B !important;text-shadow: none !important;}
 a:link,a:visited,a:active{color: #fff !important;}
@@ -19,17 +19,20 @@ function readingMode() {
 
 /*----------*/
 
+const css = 'font-size: small;';
+
 function translate(canRead) {
     let text = window.getSelection().toString().trim();
-    window.console.log(text);
+    window.console.group('%c%s', css, text);
     chrome.runtime.sendMessage({text: text, canRead: canRead}, callback);
 }
 
 function callback(o) {
     if (o[1]) {
-        o[1].forEach(value => window.console.log(resolve(value[0]) + reduce(value[1])));
+        o[1].forEach(value => window.console.log('%c%s', css, resolve(value[0]) + reduce(value[1])));
     }
-    o[0].forEach(value => window.console.log(value[0] !== null ? value[0] : "——————————————————————————————"));
+    o[0].forEach(value => window.console.log('%c%s', css, value[0] !== null ? value[0] : ''));
+    window.console.groupEnd();
 }
 
 function resolve(str) {
