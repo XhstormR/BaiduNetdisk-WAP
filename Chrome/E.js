@@ -3,8 +3,16 @@ let flag = false;
 const readingStyle = document.createElement("style");
 readingStyle.textContent = `
 *{color: #A9B7C6 !important;background-color: #2B2B2B !important;text-shadow: none !important;}
-a:link,a:visited,a:active{color: #fff !important;}
 ::selection{background: #b3d4fc !important;}
+a,a code,a span,a strong,a font{color: #fff !important;}
+
+pre a,blockquote a{background-color: #33373a !important;}
+code,pre,pre span,blockquote,blockquote p{background-color: #33373a !important;border-radius: 3px;}
+li>code,p>code,pre,blockquote{border: none !important;border-left: 2px solid #ffeb8e !important;}
+
+::-webkit-scrollbar{width:8px;height:11px}
+::-webkit-scrollbar-thumb{background:#969cbd}
+::-webkit-scrollbar-thumb:hover{background:#ff9632}
 `;
 
 function readingMode() {
