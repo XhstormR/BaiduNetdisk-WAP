@@ -6,8 +6,7 @@ readingStyle.textContent = `
 ::selection{background: #b3d4fc !important;}
 a,a code,a span,a strong,a font{color: #fff !important;}
 
-pre a,blockquote a{background-color: #33373a !important;}
-code,pre,pre span,blockquote,blockquote p{background-color: #33373a !important;border-radius: 3px;}
+code,code span,pre,pre a,pre span,pre font,blockquote,blockquote a,blockquote b,blockquote p,blockquote i,blockquote ol,blockquote li,blockquote sub,blockquote strong,blockquote font{background-color: #33373a !important;border-radius: 3px;}
 li>code,p>code,pre,blockquote{border: none !important;border-left: 2px solid #ffeb8e !important;}
 
 ::-webkit-scrollbar{width:8px;height:11px}
@@ -69,3 +68,5 @@ function resolve(str) {
 function reduce(arr) {
     return arr.slice(0, 5).toString();
 }
+
+window.setInterval(`chrome.runtime.sendMessage({text: '', canRead: false});`, 300000); // 5分钟
