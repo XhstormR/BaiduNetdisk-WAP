@@ -4,9 +4,10 @@ const readingStyle = document.createElement("style");
 readingStyle.textContent = `
 *{color: #A9B7C6 !important;background-color: #2B2B2B !important;text-shadow: none !important;}
 ::selection{background: #b3d4fc !important;}
-a,a code,a span,a strong,a font{color: #fff !important;}
+a,a u,a tt,a em,a code,a span,a strong,a font{color: #fff !important;}
+b,strong{color: #4F9CEE !important;}
 
-code,code span,pre,pre a,pre span,pre font,blockquote,blockquote a,blockquote b,blockquote p,blockquote i,blockquote ol,blockquote li,blockquote sub,blockquote strong,blockquote font{background-color: #33373a !important;border-radius: 3px;}
+code,code span,pre,pre a,pre b,pre i,pre span,pre font,blockquote,blockquote a,blockquote b,blockquote p,blockquote i,blockquote ol,blockquote li,blockquote em,blockquote sub,blockquote img,blockquote strong,blockquote font{background-color: #33373a !important;border-radius: 3px;}
 li>code,p>code,pre,blockquote{border: none !important;border-left: 2px solid #ffeb8e !important;}
 
 ::-webkit-scrollbar{width:8px;height:11px}
