@@ -10,7 +10,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function (details) {
         requestHeaders: details.requestHeaders
     };
 }, {
-    urls: ['*://*.v2ex.com/*', '*://*.zhihu.com/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://v.youku.com/*', '*://m.youku.com/*', '*://*.jianshu.com/*', '*://*.wikipedia.org/*', '*://*.stackoverflow.com/*', '*://*.stackexchange.com/*', '*://*.serverfault.com/*', '*://*.superuser.com/*'] //    urls: ['<all_urls>']
+    urls: ['*://*.v2ex.com/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://v.youku.com/*', '*://m.youku.com/*', '*://*.jianshu.com/*', '*://*.wikipedia.org/*', '*://*.stackoverflow.com/*', '*://*.stackexchange.com/*', '*://*.serverfault.com/*', '*://*.superuser.com/*'] //    urls: ['<all_urls>']
 }, ['blocking', 'requestHeaders']);
 
 chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
