@@ -1,28 +1,16 @@
 "use strict";
 let flag = false;
-const readingStyle = document.createElement("style");
-readingStyle.textContent = `
-*{color: #A9B7C6 !important;background-color: #2B2B2B !important;text-shadow: none !important;}
-::selection{background: #b3d4fc !important;}
-a,a u,a tt,a em,a code,a span,a strong,a font{color: #fff !important;}
-b,strong,strong font,strong span{color: #4F9CEE !important;}
-
-code,code span,pre,pre a,pre b,pre i,pre span,pre font,blockquote,blockquote a,blockquote b,blockquote p,blockquote i,blockquote ol,blockquote li,blockquote em,blockquote sub,blockquote img,blockquote strong,blockquote font{background-color: #33373a !important;border-radius: 3px;}
-li>code,p>code,pre,blockquote{border: none !important;border-left: 2px solid #ffeb8e !important;}
-
-::-webkit-scrollbar{width:8px;height:11px}
-::-webkit-scrollbar-thumb{background:#969cbd}
-::-webkit-scrollbar-thumb:hover{background:#ff9632}
-`;
+const readingStyle = document.createElement("link");
+readingStyle.setAttribute("rel", "stylesheet");
+readingStyle.setAttribute("href", chrome.runtime.getURL("css/read.css"));
 
 function readingMode() {
     if (flag) {
-        flag = false;
         document.head.removeChild(readingStyle);
     } else {
-        flag = true;
         document.head.appendChild(readingStyle);
     }
+    flag = !flag;
 }
 
 /*----------*/

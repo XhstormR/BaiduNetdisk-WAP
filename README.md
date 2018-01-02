@@ -42,7 +42,7 @@ https://pan.baidu.com/disk/home
 
 #### Header
 
-1. 在 `C.js` 中指定网站。
+1. 在 `background.js` 中指定网站。
   ```javascript
   urls: ['*://*.v2ex.com/*', '*://*.zhihu.com/*', '*://v.youku.com/*']
   ```
@@ -53,7 +53,7 @@ https://pan.baidu.com/disk/home
 
 1. 在 `manifest.json` 中指定网站。
   ```javascript
-  "js": ["B.js"],
+  "js": ["user_agent_native.js"],
   "matches": ["*://*.baidu.com/*", "*://v.youku.com/*"],
   ```
 
@@ -61,7 +61,7 @@ https://pan.baidu.com/disk/home
 
 ### 加载自定义 CSS
 
-在 `A.css` 中添加样式。
+在 `main.css` 中添加样式。
 
 ```css
 a{text-decoration:none !important}
@@ -78,7 +78,7 @@ a:hover { text-decoration: underline !important;}
 在 `manifest.json` 中指定网站。
 
 ```javascript
-"js": ["F.js"],
+"js": ["autoplay_read.js"],
 "matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://*.stackoverflow.com/*"],
 ```
 
