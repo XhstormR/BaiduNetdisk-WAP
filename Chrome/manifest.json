@@ -4,30 +4,30 @@
     "name": "BaiduNetdisk (WAP)",
     "description": "BaiduNetdisk (WAP)",
     "browser_action": {"default_title": "BaiduNetdisk (WAP)"},
-    "background": {"scripts": ["C.js"]},
+    "background": {"scripts": ["background.js"]},
     "content_scripts": [{
-        "css": ["A.css"],
+        "css": ["css/main.css"],
         "matches": ["http://*/*", "https://*/*"],
         "exclude_matches": ["*://localhost/*", "*://*.xhstormr.tk/*"],
         "run_at": "document_start"
     }, {
-        "js": ["A.js"],
-        "matches": ["*://v.qq.com/*"],
-        "run_at": "document_start"
-    }, {
-        "js": ["B.js"],
-        "matches": ["*://*.baidu.com/*", "*://v.youku.com/*", "*://m.youku.com/*", "*://*.vmovier.com/*", "*://*.jandan.net/*"], //        "matches": ["http://*/*", "https://*/*"],
-        "run_at": "document_start"
-    }, {
-        "js": ["D.js"],
-        "matches": ["*://m.youku.com/*"],
-        "run_at": "document_idle"
-    }, {
-        "js": ["E.js"],
+        "js": ["js/main.js"],
         "matches": ["http://*/*", "https://*/*"],
         "run_at": "document_start"
     }, {
-        "js": ["F.js"],
+        "js": ["js/user_agent_native.js"],
+        "matches": ["*://*.baidu.com/*", "*://v.youku.com/*", "*://m.youku.com/*", "*://*.vmovier.com/*", "*://*.jandan.net/*"], //        "matches": ["http://*/*", "https://*/*"],
+        "run_at": "document_start"
+    }, {
+        "js": ["js/user_agent_native_qqvideo.js"],
+        "matches": ["*://v.qq.com/*"],
+        "run_at": "document_start"
+    }, {
+        "js": ["js/autoplay_video.js"],
+        "matches": ["*://m.youku.com/*"],
+        "run_at": "document_idle"
+    }, {
+        "js": ["js/autoplay_read.js"],
         "matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://translate.google.cn/*", "*://*.stackoverflow.com/*", "*://*.stackexchange.com/*", "*://*.serverfault.com/*", "*://*.superuser.com/*", "*://docs.oracle.com/*", "*://*.v2ex.com/*", "*://*.zhihu.com/*", "*://*.douban.com/*", "*://*.solidot.org/*", "*://*.jandan.net/*"],
         "run_at": "document_idle"
     }],
