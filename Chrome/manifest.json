@@ -17,7 +17,7 @@
         "run_at": "document_start"
     }, {
         "js": ["js/main.js"],
-        "matches": ["http://*/*", "https://*/*"],
+        "matches": ["<all_urls>"],
         "run_at": "document_start"
     }, {
         "js": ["js/user_agent_native.js"],
@@ -50,5 +50,5 @@
             "description": "Translate"
         }
     },
-    "permissions": ["tabs", "webNavigation", "webRequest", "webRequestBlocking", "contextMenus", "storage", "*://*/*"]
+    "permissions": ["tabs", "webNavigation", "webRequest", "webRequestBlocking", "contextMenus", "storage", "<all_urls>"]
 }

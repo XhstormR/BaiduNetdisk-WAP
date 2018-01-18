@@ -58,4 +58,4 @@ function reduce(arr) {
     return arr.slice(0, 5).toString();
 }
 
-window.setInterval(`chrome.runtime.sendMessage({text: '', canRead: false});`, 300000); // 5分钟
+//window.setInterval(`chrome.runtime.sendMessage({text: '', canRead: false});`, 300000); // 5分钟

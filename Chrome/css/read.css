@@ -4,7 +4,7 @@
     text-shadow: none !important;
 }
 
-a, a u, a tt, a em, a code, a span, a strong, a font {
+a, a u, a i, a tt, a em, a big, a code, a span, a strong, a font {
     color: #FFF !important;
 }
 
@@ -12,7 +12,7 @@ b, em, strong, strong font, strong span {
     color: #4F9CEE !important;
 }
 
-code, code span, pre, pre a, pre b, pre u, pre i, pre span, pre font, pre strong, blockquote, blockquote a, blockquote b, blockquote p, blockquote i, blockquote ol, blockquote li, blockquote em, blockquote sub, blockquote img, blockquote strong, blockquote font {
+code, code span, pre, pre a, pre b, pre u, pre i, pre span, pre font, pre strong, blockquote, blockquote a, blockquote b, blockquote p, blockquote i, blockquote ol, blockquote tt, blockquote li, blockquote ul, blockquote em, blockquote sub, blockquote img, blockquote strong, blockquote font {
     background-color: #33373A !important;
     border-radius: 3px;
 }
@@ -22,8 +22,12 @@ li > code, p > code, pre, blockquote {
     border-left: 2px solid #FFEB8E !important;
 }
 
+pre {
+    line-height: 1.1rem !important;
+}
+
 ::selection {
-    background: #B3D4FC !important;
+    background-color: #B3D4FC !important;
 }
 
 ::-webkit-scrollbar {
@@ -32,9 +36,9 @@ li > code, p > code, pre, blockquote {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #969CBD
+    background-color: #969CBD
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #FF9632
+    background-color: #FF9632
 }
