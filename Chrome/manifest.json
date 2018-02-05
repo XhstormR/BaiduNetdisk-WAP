@@ -33,7 +33,7 @@
         "run_at": "document_idle"
     }, {
         "js": ["js/autoplay_read.js"],
-        "matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://translate.google.cn/*", "*://*.stackoverflow.com/*", "*://*.stackexchange.com/*", "*://*.serverfault.com/*", "*://*.superuser.com/*", "*://docs.oracle.com/*", "*://*.v2ex.com/*", "*://*.zhihu.com/*", "*://*.douban.com/*", "*://*.solidot.org/*", "*://*.jandan.net/*"],
+        "matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://translate.google.cn/*", "*://*.stackoverflow.com/*", "*://*.stackexchange.com/*", "*://*.serverfault.com/*", "*://*.superuser.com/*", "*://docs.oracle.com/*", "*://docs.microsoft.com/*", "*://docs.spring.io/*", "*://*.v2ex.com/*", "*://*.zhihu.com/*", "*://*.douban.com/*", "*://*.solidot.org/*", "*://*.jandan.net/*"],
         "run_at": "document_idle"
     }],
     "commands": {
