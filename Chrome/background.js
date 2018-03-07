@@ -73,7 +73,22 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     window.fetch(TRANSLATION_URL + text)
         .then(data => data.text())
         .then(data => JSON.parse(data))
-        .then(data => sendResponse(data));
+        .then(data => {
+            sendResponse(data);
+
+            let msg = "";
+            if (data[1]) {
+                data[1].forEach(value => msg += resolve(value[0]) + reduce(value[1]) + "\n");
+            }
+            data[0].forEach(value => msg += value[0] !== null ? value[0] : '');
+
+            chrome.notifications.create(null, {
+                type: 'basic',
+                iconUrl: 'img/icon.png',
+                title: data[0][0][1],
+                message: msg
+            }, null)
+        });
 
     if (canRead) {
         AUDIO.src = TRANSLATION_AUDIO_URL + text;
@@ -81,3 +96,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     }
     return true;
 });
+
+const resolve = str => str + "：";
+
+const reduce = arr => arr.slice(0, 5).toString();

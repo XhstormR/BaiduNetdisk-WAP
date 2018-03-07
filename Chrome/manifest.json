@@ -50,5 +50,5 @@
             "description": "Translate"
         }
     },
-    "permissions": ["tabs", "webNavigation", "webRequest", "webRequestBlocking", "contextMenus", "storage", "<all_urls>"]
+    "permissions": ["tabs", "webNavigation", "webRequest", "webRequestBlocking", "notifications", "contextMenus", "storage", "<all_urls>"]
 }

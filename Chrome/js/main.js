@@ -19,6 +19,9 @@ const css = 'font-size: small;';
 
 function translate(canRead) {
     let text = window.getSelection().toString().trim();
+    if (!text) { // 空白字符串
+        return;
+    }
     window.console.group('%c%s', css, text);
     chrome.runtime.sendMessage({text: text, canRead: canRead}, callback);
 }

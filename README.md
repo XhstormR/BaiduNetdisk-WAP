@@ -15,11 +15,12 @@
   - 阅读模式
   - 翻译文本
   - 移除重复标签页
+- [Note](#note)
 
 </details>
 
 ## Install
-Chrome : Click Settings -> Extensions -> Check Developer mode-> Load unpacked extension, navigate to the Chrome folder, click OK.
+Chrome: 更多工具 -> 扩展程序 -> 开发者模式 -> 加载已解压的扩展程序 -> 导航至文件夹 Chrome，点击确定。
 
 ## Features
 
@@ -90,3 +91,9 @@ a:hover { text-decoration: underline !important;}
 * 翻译 + 朗读：<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>Q</kbd>
 
 ### 移除重复标签页
+
+## Note
+
+因为安全原因，高版本的 Chrome 可能需要 **自己设置快捷键**。
+
+![](./assets/hotkey.png "快捷键")
