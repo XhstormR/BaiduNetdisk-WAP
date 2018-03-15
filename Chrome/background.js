@@ -13,6 +13,20 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function (details) {
     urls: ['*://*.v2ex.com/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://v.youku.com/*', '*://m.youku.com/*', '*://*.jianshu.com/*', '*://*.wikipedia.org/*', '*://*.stackoverflow.com/*', '*://*.stackexchange.com/*', '*://*.serverfault.com/*', '*://*.superuser.com/*'] //    urls: ['<all_urls>']
 }, ['blocking', 'requestHeaders']);
 
+chrome.webRequest.onBeforeSendHeaders.addListener(function (details) { // 配合 m3u8 使用
+    for (let i = 0; i < details.requestHeaders.length; ++i) {
+        if (details.requestHeaders[i].name === 'Referer') {
+            details.requestHeaders[i].value = 'https://avgle.com/';
+            break;
+        }
+    }
+    return {
+        requestHeaders: details.requestHeaders
+    };
+}, {
+    urls: ['*://*.ahcdn.com/*']
+}, ['blocking', 'requestHeaders']);
+
 chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
     if (details.url.startsWith("https://zh.m.wikipedia.org/wiki/")) {
         let newUrl = details.url.replace("/wiki/", "/zh-cn/");
