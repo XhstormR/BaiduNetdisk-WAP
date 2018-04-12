@@ -21,19 +21,15 @@
         "run_at": "document_start"
     }, {
         "js": ["js/user_agent_native.js"],
-        "matches": ["*://*.baidu.com/*", "*://v.youku.com/*", "*://m.youku.com/*", "*://*.vmovier.com/*", "*://*.jandan.net/*"], //        "matches": ["http://*/*", "https://*/*"],
+        "matches": ["*://*.baidu.com/*", "*://*.vmovier.com/*", "*://*.jandan.net/*"], //        "matches": ["http://*/*", "https://*/*"],
         "run_at": "document_start"
     }, {
         "js": ["js/user_agent_native_qqvideo.js"],
         "matches": ["*://v.qq.com/*"],
         "run_at": "document_start"
     }, {
-        "js": ["js/autoplay_video.js"],
-        "matches": ["*://m.youku.com/*"],
-        "run_at": "document_idle"
-    }, {
         "js": ["js/autoplay_read.js"],
-        "matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://translate.google.cn/*", "*://*.stackoverflow.com/*", "*://*.stackexchange.com/*", "*://*.serverfault.com/*", "*://*.superuser.com/*", "*://docs.oracle.com/*", "*://docs.microsoft.com/*", "*://docs.spring.io/*", "*://*.v2ex.com/*", "*://*.zhihu.com/*", "*://*.douban.com/*", "*://*.solidot.org/*", "*://*.jandan.net/*"],
+        "matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://translate.google.cn/*", "*://*.stackoverflow.com/*", "*://*.stackexchange.com/*", "*://*.serverfault.com/*", "*://*.superuser.com/*", "*://*.askubuntu.com/*", "*://docs.oracle.com/*", "*://docs.microsoft.com/*", "*://docs.spring.io/*", "*://*.v2ex.com/*", "*://*.hacpai.com/*", "*://*.zhihu.com/*", "*://*.douban.com/*", "*://*.solidot.org/*", "*://*.jandan.net/*"],
         "run_at": "document_idle"
     }],
     "commands": {

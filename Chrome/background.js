@@ -10,7 +10,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function (details) {
         requestHeaders: details.requestHeaders
     };
 }, {
-    urls: ['*://*.v2ex.com/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://v.youku.com/*', '*://m.youku.com/*', '*://*.jianshu.com/*', '*://*.wikipedia.org/*', '*://*.stackoverflow.com/*', '*://*.stackexchange.com/*', '*://*.serverfault.com/*', '*://*.superuser.com/*'] //    urls: ['<all_urls>']
+    urls: ['*://*.v2ex.com/*', '*://*.hacpai.com/*', '*://*.oschina.net/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://*.jianshu.com/*', '*://*.wikipedia.org/*', '*://*.stackoverflow.com/*', '*://*.stackexchange.com/*', '*://*.serverfault.com/*', '*://*.superuser.com/*', '*://*.askubuntu.com/*'] //    urls: ['<all_urls>']
 }, ['blocking', 'requestHeaders']);
 
 chrome.webRequest.onBeforeSendHeaders.addListener(function (details) { // 配合 m3u8 使用
