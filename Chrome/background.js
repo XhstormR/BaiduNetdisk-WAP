@@ -10,7 +10,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function (details) {
         requestHeaders: details.requestHeaders
     };
 }, {
-    urls: ['*://*.v2ex.com/*', '*://*.hacpai.com/*', '*://*.oschina.net/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://*.jianshu.com/*', '*://*.wikipedia.org/*', '*://*.stackoverflow.com/*', '*://*.stackexchange.com/*', '*://*.serverfault.com/*', '*://*.superuser.com/*', '*://*.askubuntu.com/*'] //    urls: ['<all_urls>']
+    urls: ['*://*.v2ex.com/*', '*://*.hacpai.com/*', '*://*.oschina.net/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://*.jianshu.com/*', '*://*.wikipedia.org/*', '*://*.stackoverflow.com/*', '*://*.stackexchange.com/*', '*://*.serverfault.com/*', '*://*.superuser.com/*', '*://*.askubuntu.com/*', '*://*.quora.com/*'] //    urls: ['<all_urls>']
 }, ['blocking', 'requestHeaders']);
 
 chrome.webRequest.onBeforeSendHeaders.addListener(function (details) { // 配合 m3u8 使用
@@ -26,6 +26,15 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function (details) { // 配合
 }, {
     urls: ['*://*.ahcdn.com/*']
 }, ['blocking', 'requestHeaders']);
+
+chrome.webRequest.onBeforeRequest.addListener(function (request) {
+    let url = request.url.replace('ajax.googleapis.com', 'ajax.proxy.ustclug.org');
+    return {
+        redirectUrl: url
+    };
+}, {
+    urls: ['*://ajax.googleapis.com/*']
+}, ['blocking']);
 
 chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
     if (details.url.startsWith("https://zh.m.wikipedia.org/wiki/")) {

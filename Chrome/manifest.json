@@ -29,7 +29,7 @@
         "run_at": "document_start"
     }, {
         "js": ["js/autoplay_read.js"],
-        "matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://translate.google.cn/*", "*://*.stackoverflow.com/*", "*://*.stackexchange.com/*", "*://*.serverfault.com/*", "*://*.superuser.com/*", "*://*.askubuntu.com/*", "*://docs.oracle.com/*", "*://docs.microsoft.com/*", "*://docs.spring.io/*", "*://*.v2ex.com/*", "*://*.hacpai.com/*", "*://*.zhihu.com/*", "*://*.douban.com/*", "*://*.solidot.org/*", "*://*.jandan.net/*"],
+        "matches": ["*://*.jianshu.com/*", "*://*.wikipedia.org/*", "*://translate.google.cn/*", "*://*.stackoverflow.com/*", "*://*.stackexchange.com/*", "*://*.serverfault.com/*", "*://*.superuser.com/*", "*://*.askubuntu.com/*", "*://*.quora.com/*", "*://docs.oracle.com/*", "*://docs.microsoft.com/*", "*://docs.spring.io/*", "*://*.v2ex.com/*", "*://*.hacpai.com/*", "*://*.zhihu.com/*", "*://*.douban.com/*", "*://*.solidot.org/*", "*://*.jandan.net/*"],
         "run_at": "document_idle"
     }],
     "commands": {
