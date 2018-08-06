@@ -87,11 +87,18 @@ chrome.commands.onCommand.addListener(function (command) {
 
 const TRANSLATION_URL = "https://translate.google.cn/translate_a/single?client=gtx&sl=auto&tl=zh-CN&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&otf=1&ssel=0&tsel=0&kc=3&q=";
 const TRANSLATION_AUDIO_URL = "https://translate.google.cn/translate_tts?client=gtx&ie=UTF-8&tl=en&q=";
+const BING_TRANSLATION_URL = "https://cn.bing.com/ttranslate";
 const AUDIO = new Audio();
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     let text = encodeURIComponent(request.text);
     let canRead = request.canRead;
+    let payload = {
+        text: text,
+        from: "en",
+        to: "zh-CHS"
+    };
+    payload = Object.entries(payload).map(([key, val]) => `${key}=${val}`).join('&');
 
     window.fetch(TRANSLATION_URL + text)
         .then(data => data.text())
@@ -110,13 +117,33 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                 iconUrl: 'img/icon.png',
                 title: data[0][0][1],
                 message: msg
-            }, null)
+            }, null);
+        });
+
+    window.fetch(BING_TRANSLATION_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: payload
+    })
+        .then(response => response.json())
+        .then(data => {
+            sendResponse(data);
+
+            chrome.notifications.create(null, {
+                type: 'basic',
+                iconUrl: 'img/icon.png',
+                title: request.text,
+                message: data.translationResponse
+            }, null);
         });
 
     if (canRead) {
         AUDIO.src = TRANSLATION_AUDIO_URL + text;
         AUDIO.play();
     }
+
     return true;
 });
 

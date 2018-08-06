@@ -27,10 +27,14 @@ function translate(canRead) {
 }
 
 function callback(o) {
-    if (o[1]) {
-        o[1].forEach(value => window.console.log('%c%s', css, resolve(value[0]) + reduce(value[1])));
+    if (o.translationResponse !== undefined) {
+        window.console.log('%c%s', css, o.translationResponse);
+    } else {
+        if (o[1]) {
+            o[1].forEach(value => window.console.log('%c%s', css, resolve(value[0]) + reduce(value[1])));
+        }
+        o[0].forEach(value => window.console.log('%c%s', css, value[0] !== null ? value[0] : ''));
     }
-    o[0].forEach(value => window.console.log('%c%s', css, value[0] !== null ? value[0] : ''));
     window.console.groupEnd();
 }
 
