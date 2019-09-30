@@ -49,5 +49,6 @@
     "chrome_url_overrides": {
         "newtab": "newtab.html"
     },
+    "content_security_policy": "script-src 'self' blob: filesystem: chrome-extension-resource: https://cdnjs.cloudflare.com; object-src 'self'",
     "permissions": ["tabs", "webNavigation", "webRequest", "webRequestBlocking", "notifications", "contextMenus", "storage", "<all_urls>"]
 }

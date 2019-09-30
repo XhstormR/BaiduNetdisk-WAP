@@ -15,6 +15,7 @@
   - 阅读模式
   - 翻译文本
   - 移除重复标签页
+  - 播放原生 HLS (m3u8) 视频
 - [Note](#note)
 
 </details>
@@ -91,6 +92,9 @@ a:hover { text-decoration: underline !important;}
 * 翻译 + 朗读：<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>Q</kbd>
 
 ### 移除重复标签页
+
+### 播放原生 HLS (m3u8) 视频
+* https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8
 
 ## Note
 

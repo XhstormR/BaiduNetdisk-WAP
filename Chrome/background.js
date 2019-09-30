@@ -36,6 +36,15 @@ chrome.webRequest.onBeforeRequest.addListener(function (request) {
     urls: ['*://ajax.googleapis.com/*']
 }, ['blocking']);
 
+chrome.webRequest.onBeforeRequest.addListener(function (request) {
+    let url = chrome.runtime.getURL('player.html') + "#" + request.url;
+    return {
+        redirectUrl: url
+    };
+}, {
+    urls: ['*://*/*.m3u8*'], types:['main_frame']
+}, ['blocking']);
+
 chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
     if (details.url.startsWith("https://zh.m.wikipedia.org/wiki/")) {
         let newUrl = details.url.replace("/wiki/", "/zh-cn/");
