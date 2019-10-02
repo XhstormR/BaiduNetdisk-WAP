@@ -14,18 +14,17 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function (details) {
 }, ['blocking', 'requestHeaders']);
 
 chrome.webRequest.onBeforeSendHeaders.addListener(function (details) { // 配合 m3u8 使用
-    for (let i = 0; i < details.requestHeaders.length; ++i) {
-        if (details.requestHeaders[i].name === 'Referer') {
-            details.requestHeaders[i].value = 'https://avgle.com/';
-            break;
-        }
-    }
+    let header = {
+        name: "Referer",
+        value: "https://avgle.com/"
+    };
+    details.requestHeaders.push(header);
     return {
         requestHeaders: details.requestHeaders
     };
 }, {
-    urls: ['*://*.ahcdn.com/*']
-}, ['blocking', 'requestHeaders']);
+    urls: ['*://*.ahcdn.com/*', '*://*.qooqlevideo.com/*']
+}, ['blocking', 'requestHeaders', 'extraHeaders']);
 
 chrome.webRequest.onBeforeRequest.addListener(function (request) {
     let url = request.url.replace('ajax.googleapis.com', 'ajax.proxy.ustclug.org');
