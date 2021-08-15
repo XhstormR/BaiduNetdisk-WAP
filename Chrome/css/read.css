@@ -1,11 +1,11 @@
 * {
-    color: #A9B7C6 !important;
-    background-color: #131313 !important; /* #2B2B2B */
+    color: #E8EBFB !important; /* #A9B7C6 */
+    background-color: #2E303E !important; /* #2B2B2B #131313 */
     text-shadow: none !important;
 }
 
 a, a u, a i, a tt, a em, a big, a code, a span, a strong, a font {
-    color: #FFF !important;
+    color: #8AB4F8 !important;
 }
 
 b, b font, em, em font, strong, strong font, strong span {

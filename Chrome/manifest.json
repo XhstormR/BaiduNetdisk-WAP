@@ -4,7 +4,7 @@
     "name": "BaiduNetdisk (WAP)",
     "description": "BaiduNetdisk (WAP)",
     "homepage_url": "https://github.com/XhstormR/BaiduNetdisk-WAP",
-    "web_accessible_resources": ["css/read.css"],
+    "web_accessible_resources": ["css/read.css", "player.html"],
     "browser_action": {"default_title": "BaiduNetdisk (WAP)"},
     "background": {
         "scripts": ["background.js"],
@@ -13,7 +13,7 @@
     "content_scripts": [{
         "css": ["css/main.css"],
         "matches": ["http://*/*", "https://*/*"],
-        "exclude_matches": ["*://localhost/*", "*://*.xhstormr.tk/*"],
+        "exclude_matches": ["*://localhost/*", "*://*.xhstormr.tk/*", "*://docs.google.com/*"],
         "run_at": "document_start"
     }, {
         "js": ["js/main.js"],
@@ -49,6 +49,6 @@
     "chrome_url_overrides": {
         "newtab": "newtab.html"
     },
-    "content_security_policy": "script-src 'self' blob: filesystem: chrome-extension-resource: https://cdnjs.cloudflare.com; object-src 'self'",
+    "content_security_policy": "script-src 'self' blob: filesystem: https://cdnjs.cloudflare.com; object-src 'self'",
     "permissions": ["tabs", "webNavigation", "webRequest", "webRequestBlocking", "notifications", "contextMenus", "storage", "<all_urls>"]
 }
