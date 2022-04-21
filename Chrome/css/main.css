@@ -7,5 +7,5 @@ a:hover {
 }
 
 *:not([class*="icon"]):not(i) {
-    font-family: "Microsoft YaHei", "Symbol", serif !important;
+    font-family: "Microsoft YaHei", "PingFang SC", "Symbol", serif !important;
 }
