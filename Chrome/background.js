@@ -93,8 +93,8 @@ chrome.commands.onCommand.addListener(function (command) {
 
 /*----------*/
 
-const TRANSLATION_URL = "https://translate.google.cn/translate_a/single?client=gtx&sl=auto&tl=zh-CN&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&otf=1&ssel=0&tsel=0&kc=3&q=";
-const TRANSLATION_AUDIO_URL = "https://translate.google.cn/translate_tts?client=gtx&ie=UTF-8&tl=en&q=";
+const TRANSLATION_URL = "https://translate.google.com/translate_a/single?client=gtx&sl=auto&tl=zh-CN&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&otf=1&ssel=0&tsel=0&kc=3&q=";
+const TRANSLATION_AUDIO_URL = "https://translate.google.com/translate_tts?client=gtx&ie=UTF-8&tl=en&q=";
 const BING_TRANSLATION_URL = "https://cn.bing.com/ttranslate";
 const AUDIO = new Audio();
 
