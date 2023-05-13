@@ -6,6 +6,6 @@ a:hover {
     text-decoration: underline !important;
 }
 
-*:not([class*="icon"]):not(i) {
-    font-family: "Microsoft YaHei", "PingFang SC", "Symbol", serif !important;
-}
+/**:not([class*="icon"]):not(i) {*/
+/*    font-family: "Microsoft YaHei", "PingFang SC", "Symbol", serif !important;*/
+/*}*/
