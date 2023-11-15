@@ -2,7 +2,7 @@
 chrome.webRequest.onBeforeSendHeaders.addListener(function (details) {
     for (let i = 0; i < details.requestHeaders.length; ++i) {
         if (details.requestHeaders[i].name === 'User-Agent') {
-            details.requestHeaders[i].value = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Mobile Safari/537.36';
+            details.requestHeaders[i].value = 'Mozilla/5.0 (Linux; Android 10; Pixel 4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.36';
             break;
         }
     }
@@ -10,7 +10,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function (details) {
         requestHeaders: details.requestHeaders
     };
 }, {
-    urls: ['*://*.v2ex.com/*', '*://*.hacpai.com/*', '*://*.oschina.net/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://*.jianshu.com/*', '*://*.wikipedia.org/*', '*://*.stackoverflow.com/*', '*://*.stackexchange.com/*', '*://*.serverfault.com/*', '*://*.superuser.com/*', '*://*.askubuntu.com/*', '*://*.quora.com/*'] //    urls: ['<all_urls>']
+    urls: ['*://*.hacpai.com/*', '*://*.oschina.net/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://*.jianshu.com/*', '*://*.wikipedia.org/*', '*://*.stackoverflow.com/*', '*://*.stackexchange.com/*', '*://*.serverfault.com/*', '*://*.superuser.com/*', '*://*.askubuntu.com/*', '*://*.quora.com/*'] //    urls: ['<all_urls>']
 }, ['blocking', 'requestHeaders']);
 
 chrome.webRequest.onBeforeSendHeaders.addListener(function (details) { // 配合 m3u8 使用
