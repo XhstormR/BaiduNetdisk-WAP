@@ -61,10 +61,13 @@ chrome.browserAction.onClicked.addListener(function (tab) {
         currentWindow: true
     }, function (tabs) {
         tabs.reverse().forEach(function (tab) {
-            if (~urls.indexOf(tab.url)) {
+            let url = new URL(tab.url);
+            url.hash=''
+            url = url.toString()
+            if (~urls.indexOf(url)) {
                 tabsToClose.push(tab.id);
             } else {
-                urls.push(tab.url);
+                urls.push(url);
             }
         });
         chrome.tabs.remove(tabsToClose);
