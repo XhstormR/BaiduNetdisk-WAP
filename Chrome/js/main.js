@@ -15,25 +15,25 @@ function readingMode() {
 
 /*----------*/
 
-const css = 'font-size: small;';
+const CSS = 'font-size: small;';
 
 function translate(canRead) {
     let text = window.getSelection().toString().trim();
     if (!text) { // 空白字符串
         return;
     }
-    window.console.group('%c%s', css, text);
-    chrome.runtime.sendMessage({text: text, canRead: canRead}, callback);
+    chrome.runtime.sendMessage({text: text, canRead: canRead}, log);
 }
 
-function callback(o) {
-    if (o.translationResponse !== undefined) {
-        window.console.log('%c%s', css, o.translationResponse);
+function log(json) {
+    window.console.group('%c%s', CSS, json[5][0][0]);
+    if (json.translationResponse !== undefined) {
+        window.console.log('%c%s', CSS, json.translationResponse);
     } else {
-        if (o[1]) {
-            o[1].forEach(value => window.console.log('%c%s', css, resolve(value[0]) + reduce(value[1])));
+        if (json[1]) {
+            json[1].forEach(value => window.console.log('%c%s', CSS, resolve(value[0]) + reduce(value[1])));
         }
-        o[0].forEach(value => window.console.log('%c%s', css, value[0] !== null ? value[0] : ''));
+        json[0].forEach(value => window.console.log('%c%s', CSS, value[0] !== null ? value[0] : ''));
     }
     window.console.groupEnd();
 }
@@ -61,8 +61,6 @@ function resolve(str) {
     }
 }
 
-function reduce(arr) {
-    return arr.slice(0, 5).toString();
-}
+const reduce = arr => arr.slice(0, 5).toString();
 
 //window.setInterval(`chrome.runtime.sendMessage({text: '', canRead: false});`, 300000); // 5分钟

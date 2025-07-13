@@ -1,95 +1,29 @@
 "use strict";
-chrome.webRequest.onBeforeSendHeaders.addListener(function (details) {
-    for (let i = 0; i < details.requestHeaders.length; ++i) {
-        if (details.requestHeaders[i].name === 'User-Agent') {
-            details.requestHeaders[i].value = 'Mozilla/5.0 (Linux; Android 10; Pixel 4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.36';
-            break;
-        }
-    }
-    return {
-        requestHeaders: details.requestHeaders
-    };
-}, {
-    urls: ['*://*.hacpai.com/*', '*://*.oschina.net/*', '*://*.solidot.org/*', '*://*.vmovier.com/*', '*://*.jianshu.com/*', '*://*.wikipedia.org/*', '*://*.stackoverflow.com/*', '*://*.stackexchange.com/*', '*://*.serverfault.com/*', '*://*.superuser.com/*', '*://*.askubuntu.com/*', '*://*.quora.com/*'] //    urls: ['<all_urls>']
-}, ['blocking', 'requestHeaders']);
 
-chrome.webRequest.onBeforeSendHeaders.addListener(function (details) { // 配合 m3u8 使用
-    let header = {
-        name: "Referer",
-        value: "https://avgle.com/"
-    };
-    details.requestHeaders.push(header);
-    return {
-        requestHeaders: details.requestHeaders
-    };
-}, {
-    urls: ['*://*.ahcdn.com/*', '*://*.qooqlevideo.com/*']
-}, ['blocking', 'requestHeaders', 'extraHeaders']);
+async function getCurrentTab() {
+    let queryOptions = { active: true, lastFocusedWindow: true };
+    let [tab] = await chrome.tabs.query(queryOptions);
+    return tab;
+}
 
-chrome.webRequest.onBeforeRequest.addListener(function (request) {
-    let url = request.url.replace('ajax.googleapis.com', 'ajax.proxy.ustclug.org');
-    return {
-        redirectUrl: url
-    };
-}, {
-    urls: ['*://ajax.googleapis.com/*']
-}, ['blocking']);
+async function executeScript(func) {
+    let tab = await getCurrentTab()
+    chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        func: func
+    })
+}
 
-chrome.webRequest.onBeforeRequest.addListener(function (request) {
-    let url = chrome.runtime.getURL('player.html') + "#" + request.url;
-    return {
-        redirectUrl: url
-    };
-}, {
-    urls: ['*://*/*.m3u8*'], types:['main_frame']
-}, ['blocking']);
-
-chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
-    if (details.url.startsWith("https://zh.m.wikipedia.org/wiki/")) {
-        let newUrl = details.url.replace("/wiki/", "/zh-cn/");
-        chrome.tabs.update(details.tabId, {
-            url: newUrl
-        });
-    }
-});
-
-chrome.browserAction.onClicked.addListener(function (tab) {
-    if (!confirm('是否要移除重复标签页？'))
-        return;
-    const urls = [], tabsToClose = [];
-    chrome.tabs.query({
-        currentWindow: true
-    }, function (tabs) {
-        tabs.reverse().forEach(function (tab) {
-            let url = new URL(tab.url);
-            url.hash=''
-            url = url.toString()
-            if (~urls.indexOf(url)) {
-                tabsToClose.push(tab.id);
-            } else {
-                urls.push(url);
-            }
-        });
-        chrome.tabs.remove(tabsToClose);
-    });
-});
-
-chrome.commands.onCommand.addListener(function (command) {
+chrome.commands.onCommand.addListener(async function (command) {
     switch (command) {
         case "Reading Mode":
-            chrome.tabs.executeScript(null, {
-                code: "readingMode();"
-            });
-            break;
-        case "Translate and Read":
-            chrome.tabs.executeScript(null, {
-                code: "translate(true);"
-            });
+            executeScript(() => readingMode())
             break;
         case "Translate":
-            chrome.tabs.executeScript(null, {
-                code: "translate(false);"
-            });
+            executeScript(() => translate(false))
+            break;
+        case "Translate and Read":
+            executeScript(() => translate(true))
             break;
     }
 });
@@ -98,61 +32,41 @@ chrome.commands.onCommand.addListener(function (command) {
 
 const TRANSLATION_URL = "https://translate.google.com/translate_a/single?client=gtx&sl=auto&tl=zh-CN&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&otf=1&ssel=0&tsel=0&kc=3&q=";
 const TRANSLATION_AUDIO_URL = "https://translate.google.com/translate_tts?client=gtx&ie=UTF-8&tl=en&q=";
-const BING_TRANSLATION_URL = "https://cn.bing.com/ttranslate";
-const AUDIO = new Audio();
+//const AUDIO = new Audio();
 
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    let text = encodeURIComponent(request.text);
-    let canRead = request.canRead;
+chrome.runtime.onMessage.addListener(function (data, sender, callback) {
+    let text = encodeURIComponent(data.text);
+    let canRead = data.canRead;
     let payload = {
         text: text,
-        from: "en",
+        fromlang: "en",
         to: "zh-CHS"
     };
     payload = Object.entries(payload).map(([key, val]) => `${key}=${val}`).join('&');
 
-    window.fetch(TRANSLATION_URL + text)
-        .then(data => data.text())
-        .then(data => JSON.parse(data))
-        .then(data => {
-            sendResponse(data);
+    fetch(TRANSLATION_URL + text)
+        .then(resp => resp.text())
+        .then(resp => JSON.parse(resp))
+        .then(json => {
+            callback(json);
 
             let msg = "";
-            if (data[1]) {
-                data[1].forEach(value => msg += resolve(value[0]) + reduce(value[1]) + "\n");
+            if (json[1]) {
+                json[1].forEach(value => msg += resolve(value[0]) + reduce(value[1]) + "\n");
             }
-            data[0].forEach(value => msg += value[0] !== null ? value[0] : '');
+            json[0].forEach(value => msg += value[0] !== null ? value[0] : '');
 
             chrome.notifications.create(null, {
                 type: 'basic',
                 iconUrl: 'img/icon.png',
-                title: data[0][0][1],
+                title: json[0][0][1],
                 message: msg
             }, null);
         });
 
-    window.fetch(BING_TRANSLATION_URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: payload
-    })
-        .then(response => response.json())
-        .then(data => {
-            sendResponse(data);
-
-            chrome.notifications.create(null, {
-                type: 'basic',
-                iconUrl: 'img/icon.png',
-                title: request.text,
-                message: data.translationResponse
-            }, null);
-        });
-
     if (canRead) {
-        AUDIO.src = TRANSLATION_AUDIO_URL + text;
-        AUDIO.play();
+//        AUDIO.src = TRANSLATION_AUDIO_URL + text;
+//        AUDIO.play();
     }
 
     return true;
