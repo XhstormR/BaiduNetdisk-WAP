@@ -45,6 +45,7 @@
             "run_at": "document_start"
         },
         {
+            "world": "MAIN",
             "js": [
                 "js/user_agent_native.js"
             ],
@@ -56,6 +57,7 @@
             "run_at": "document_start"
         },
         {
+            "world": "MAIN",
             "js": [
                 "js/user_agent_native_qqvideo.js"
             ],
