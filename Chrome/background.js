@@ -32,7 +32,6 @@ chrome.commands.onCommand.addListener(async function (command) {
 
 const TRANSLATION_URL = "https://translate.google.com/translate_a/single?client=gtx&sl=auto&tl=zh-CN&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&otf=1&ssel=0&tsel=0&kc=3&q=";
 const TRANSLATION_AUDIO_URL = "https://translate.google.com/translate_tts?client=gtx&ie=UTF-8&tl=en&q=";
-//const AUDIO = new Audio();
 
 chrome.runtime.onMessage.addListener(function (data, sender, callback) {
     let text = encodeURIComponent(data.text);
@@ -63,11 +62,6 @@ chrome.runtime.onMessage.addListener(function (data, sender, callback) {
                 message: msg
             }, null);
         });
-
-    if (canRead) {
-//        AUDIO.src = TRANSLATION_AUDIO_URL + text;
-//        AUDIO.play();
-    }
 
     return true;
 });

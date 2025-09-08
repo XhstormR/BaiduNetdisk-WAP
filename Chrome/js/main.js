@@ -22,6 +22,12 @@ function translate(canRead) {
     if (!text) { // 空白字符串
         return;
     }
+    if (canRead) {
+        let utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.7;
+        speechSynthesis.speak(utterance);
+    }
     chrome.runtime.sendMessage({text: text, canRead: canRead}, log);
 }
 
