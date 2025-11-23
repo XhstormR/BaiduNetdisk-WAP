@@ -14,7 +14,13 @@
     },
     "condition": {
       "urlFilter": "*://*.stackexchange.com/*",
-      "resourceTypes": ["main_frame", "sub_frame", "stylesheet", "script", "media"]
+      "resourceTypes": [
+        "main_frame",
+        "sub_frame",
+        "stylesheet",
+        "script",
+        "media"
+      ]
     }
   },
   {
@@ -25,13 +31,19 @@
       "redirect": {
         "transform": {
           "scheme": "https",
-          "host": "zh.m.wikipedia.org"
+          "host": "maven.proxy.ustclug.org"
         }
       }
     },
     "condition": {
-      "urlFilter": "*://zh.wikipedia.org/*",
-      "resourceTypes": ["main_frame", "sub_frame", "stylesheet", "script", "media"]
+      "urlFilter": "*://repo1.maven.org/*",
+      "resourceTypes": [
+        "main_frame",
+        "sub_frame",
+        "stylesheet",
+        "script",
+        "media"
+      ]
     }
   },
   {
@@ -48,7 +60,13 @@
     },
     "condition": {
       "urlFilter": "*://ajax.googleapis.com/*",
-      "resourceTypes": ["main_frame", "sub_frame", "stylesheet", "script", "media"]
+      "resourceTypes": [
+        "main_frame",
+        "sub_frame",
+        "stylesheet",
+        "script",
+        "media"
+      ]
     }
   },
   {
@@ -62,7 +80,9 @@
     },
     "condition": {
       "urlFilter": ".m3u8",
-      "resourceTypes": ["main_frame"]
+      "resourceTypes": [
+        "main_frame"
+      ]
     }
   }
 ]

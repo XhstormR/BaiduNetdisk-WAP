@@ -74,6 +74,7 @@
                 "*://*.jianshu.com/*",
                 "*://*.wikipedia.org/*",
                 "*://translate.google.cn/*",
+                "*://translate.google.com/*",
                 "*://*.stackoverflow.com/*",
                 "*://*.stackexchange.com/*",
                 "*://*.serverfault.com/*",
