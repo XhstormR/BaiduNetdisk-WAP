@@ -88,7 +88,6 @@
                 "*://*.zhihu.com/*",
                 "*://*.douban.com/*",
                 "*://*.solidot.org/*",
-                "*://*.jandan.net/*",
                 "*://*.mail.qq.com/*"
             ],
             "run_at": "document_idle"
