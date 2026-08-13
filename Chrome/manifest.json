@@ -22,12 +22,8 @@
     },
     "content_scripts": [
         {
-            "css": [
-                "css/main.css"
-            ],
-            "matches": [
-                "*://*/*"
-            ],
+            "css": ["css/main.css"],
+            "matches": ["*://*/*"],
             "exclude_matches": [
                 "*://localhost/*",
                 "*://*.xhstormr.tk/*",
@@ -36,19 +32,13 @@
             "run_at": "document_start"
         },
         {
-            "js": [
-                "js/main.js"
-            ],
-            "matches": [
-                "*://*/*"
-            ],
+            "js": ["js/main.js"],
+            "matches": ["*://*/*"],
             "run_at": "document_start"
         },
         {
             "world": "MAIN",
-            "js": [
-                "js/user_agent_native.js"
-            ],
+            "js": ["js/user_agent_native.js"],
             "matches": [
                 "*://*.baidu.com/*",
                 "*://*.vmovier.com/*",
@@ -58,23 +48,15 @@
         },
         {
             "world": "MAIN",
-            "js": [
-                "js/user_agent_native_qqvideo.js"
-            ],
-            "matches": [
-                "*://v.qq.com/*"
-            ],
+            "js": ["js/user_agent_native_qqvideo.js"],
+            "matches": ["*://v.qq.com/*"],
             "run_at": "document_start"
         },
         {
-            "js": [
-                "js/autoplay_read.js"
-            ],
+            "js": ["js/autoplay_read.js"],
             "matches": [
                 "*://*.jianshu.com/*",
                 "*://*.wikipedia.org/*",
-                "*://translate.google.cn/*",
-                "*://translate.google.com/*",
                 "*://*.stackoverflow.com/*",
                 "*://*.stackexchange.com/*",
                 "*://*.serverfault.com/*",
@@ -118,21 +100,15 @@
     },
     "web_accessible_resources": [
         {
-            "resources": [
-                "*"
-            ],
-            "matches": [
-                "*://*/*"
-            ]
+            "resources": ["*"],
+            "matches": ["*://*/*"]
         }
     ],
     "content_security_policy": {
         "sandbox": "sandbox allow-scripts; script-src 'self' blob: filesystem: https://cdnjs.cloudflare.com; object-src 'self'"
     },
     "sandbox": {
-        "pages": [
-            "player.html"
-        ]
+        "pages": ["player.html"]
     },
     "permissions": [
         "tabs",
@@ -146,7 +122,5 @@
         "declarativeNetRequestFeedback",
         "declarativeNetRequestWithHostAccess"
     ],
-    "host_permissions": [
-        "<all_urls>"
-    ]
+    "host_permissions": ["<all_urls>"]
 }
